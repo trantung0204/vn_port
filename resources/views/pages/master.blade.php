@@ -8,23 +8,17 @@
     <link rel="stylesheet" href="{{ asset('css/pages/theme.css') }}" type="text/css">
     @yield('header')
 </head>
-
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between bg-secondary border sticky-top style="
-     background-color: #e3f2fd;
-"">
 <div class="container">
-    <div class="row widthheader">
+    <div class="row">
         <div class="col-sm-12 col-xs-12">
             <div class="head1">
                 <div id="idnavigate"></div>
             </div>
             @include('parts.navbar')
-            <!--            </div>-->
         </div>
     </div>
 </div>
-</nav>
 @yield('slide')
 <div class="container">
     <div class="row">
@@ -34,6 +28,7 @@
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
+            <hr>
             <h2>Giới thiệu để chỗ này nè</h2>
             <p><a>Cảng Sài Gòn trong hệ thống Cảng biển của ngành Hàng hải Việt nam là một cảng có sản lượng và năng
                     suất xếp dỡ
