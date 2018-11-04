@@ -2,7 +2,7 @@
 @section('body')
     <!-- tin tức -->
     <div class="col-md-8 col-sm-12 col-xs-12 paddingtop">
-        <h2>Tin tức mới</h2>
+        <h3>Tin tức mới</h3>
         <hr>
         <div class="colnews1">
             <a id="UCTintucmoi_Home1_Repeater1_HyperLink1_0" href="news-details.aspx?page=2329">Công ty Cổ phần

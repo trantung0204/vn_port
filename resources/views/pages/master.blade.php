@@ -28,8 +28,8 @@
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
-            <hr>
-            <h2>Giới thiệu để chỗ này nè</h2>
+            <p></p>
+            <h3>Giới thiệu</h3>
             <p><a>Cảng Sài Gòn trong hệ thống Cảng biển của ngành Hàng hải Việt nam là một cảng có sản lượng và năng
                     suất xếp dỡ
                     hàng đầu của Quốc gia.</a></p>
