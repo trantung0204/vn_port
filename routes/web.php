@@ -35,3 +35,13 @@ Route::get('lien-he', function () {
 Route::get('tin-moi', function () {
     return view('pages/tinmoi');
 });
+Route::get('tin-tuc', function () {
+    return view('pages/tintuc');
+});
+Route::get('noi-bo', function () {
+    return view('pages/noibo');
+});
+Route::get('khach-hang', function () {
+    return view('pages/khachhang');
+});
+

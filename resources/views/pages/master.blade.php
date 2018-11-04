@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col-sm-12 col-xs-12">
             <div class="head1">
-                <div id="idnavigate"></div>
+                <div><span><img class="d-block img-fluid" src="img/logo.png"></span></div>
             </div>
             @include('parts.navbar')
         </div>
@@ -40,6 +40,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12">
+                <hr>
                 <p><a href="#" title="" style="text-align: left; font-size: 20px;">LIÊN HỆ</a></p>
                 <div class="lienhe">
                     <p><a>Công ty TNHH MTV Cảng tổng hợp quốc tế Nghi Sơn - NSIP</a></p>
