@@ -30,9 +30,13 @@
             </form>
             <p></p>
             <h3>Giới thiệu</h3>
-            <p><a>Cảng Sài Gòn trong hệ thống Cảng biển của ngành Hàng hải Việt nam là một cảng có sản lượng và năng
+            @if (isset($introduce_html))
+                {!! $introduce_html !!}
+            @else
+                <p><a>Cảng Sài Gòn trong hệ thống Cảng biển của ngành Hàng hải Việt nam là một cảng có sản lượng và năng
                     suất xếp dỡ
                     hàng đầu của Quốc gia.</a></p>
+            @endif
         </div>
     </div>
 </div>
@@ -43,6 +47,9 @@
                 <hr>
                 <p><a href="#" title="" style="text-align: left; font-size: 20px;">LIÊN HỆ</a></p>
                 <div class="lienhe">
+                    @if (isset($contact_html))
+                        {!!$contact_html!!}
+                    @else
                     <p><a>Công ty TNHH MTV Cảng tổng hợp quốc tế Nghi Sơn - NSIP</a></p>
                     <p><a>Trụ sở chính: Hà Tân, Hải Hà, Tĩnh Gia, Thanh Hóa</a></p>
                     <p><a>Điện Thoại: (84) 237 361 3938 – Fax: (84) 237 361 3939</a></p>
@@ -50,6 +57,7 @@
                     <p><a>Văn Phòng Đại Diện : Phòng 406, Tầng 4, Tòa nhà Citilight, 45 Võ Thị Sáu, Quận 1, Tp.HCM</a>
                     </p>
                     <p><a>Website: canghaiphong.com</a></p>
+                    @endif
                 </div>
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12">
