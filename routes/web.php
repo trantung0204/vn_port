@@ -32,3 +32,13 @@ Route::get('kho-bai', function () {
 Route::get('lien-he', function () {
     return view('pages/lienhe');
 });
+
+Auth::routes();
+
+Route::prefix('admin')->group(function(){
+	Route::middleware('auth')->group( function (){
+		Route::post('posts/get_list_posts', 'Admin\PostController@getListPosts')->name('posts.getListPosts');
+		Route::resource('posts','Admin\PostController');
+		Route::post('posts', 'Admin\PostController@update')->name('posts.update');
+	});
+});
