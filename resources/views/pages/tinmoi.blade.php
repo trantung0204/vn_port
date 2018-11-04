@@ -3,7 +3,7 @@
     <div class="col-md-8 paddingtop">
         <h3>Thủ tướng thị sát Cảng Container quốc tế Cái Mép</h3>
         <div class="new-meta">
-            <span class="create-author">ADMIN</span>
+            <span class="create-author"><i class="fa fa-user-circle" aria-hidden="true"></i> ADMIN</span>
             <span class="create-time"><i class="fa fa-clock-o" aria-hidden="true"></i> 09:00AM 04/11/2018</span>
         </div>
         <hr>
@@ -20,6 +20,5 @@
         </p>
         <p>Vào tháng 2 năm nay, siêu tàu container Margrethe Maersk trọng tải 194.000 tấn với sức chở 18.300 TEU đã cập bến thành công tại Cảng CMIT. Qua đó đưa CMIT thành cảng thứ 19 trên thế giới đủ khả năng tiếp nhận thế hệ tàu Triple-E 18.000 TEU.
         </p>
-        <hr>
     </div>
 @endsection

@@ -3,8 +3,7 @@
 	<div class="col-md-8 paddingtop">
 		<h3 title="">Dịch vụ</h3>
 		<hr>
-		<div id="wmd-preview" class="wmd-preview"><p>Cảng tổng hợp quốc tế Nghi Sơn cung cấp các loại dịch vụ như:</p>
-
+		<div><p>Cảng tổng hợp quốc tế Nghi Sơn cung cấp các loại dịch vụ như:</p>
 		<ul>
 			<li>Cho thuê kho bãi, cầu bến</li>
 			<li>Xếp dỡ, vận chuyển, giao nhận, cân hàng đối với hàng tổng hợp, hàng rời và hàng container</li>
