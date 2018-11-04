@@ -45,3 +45,13 @@ Route::get('khach-hang', function () {
     return view('pages/khachhang');
 });
 
+
+Auth::routes();
+
+Route::prefix('admin')->group(function(){
+	Route::middleware('auth')->group( function (){
+		Route::post('posts/get_list_posts', 'Admin\PostController@getListPosts')->name('posts.getListPosts');
+		Route::resource('posts','Admin\PostController');
+		Route::post('posts', 'Admin\PostController@update')->name('posts.update');
+	});
+});
