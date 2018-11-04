@@ -1,7 +1,7 @@
 @extends('pages.master')
 @section('body')
 	<div class="col-md-8 paddingtop">
-		<h2 title="">Hệ thống thiết bị</h2>
+		<h3 title="">Hệ thống thiết bị</h3>
 		<hr>
 		<table border="1" cellpadding="0" cellspacing="0">
 			<tbody>

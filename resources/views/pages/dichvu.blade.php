@@ -1,7 +1,7 @@
 @extends('pages.master')
 @section('body')
 	<div class="col-md-8 paddingtop">
-		<h2 title="">Dịch vụ</h2>
+		<h3 title="">Dịch vụ</h3>
 		<hr>
 		<div id="wmd-preview" class="wmd-preview"><p>Cảng tổng hợp quốc tế Nghi Sơn cung cấp các loại dịch vụ như:</p>
 

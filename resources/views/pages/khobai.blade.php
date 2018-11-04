@@ -1,7 +1,7 @@
 @extends('pages.master')
 @section('body')
 	<div class="col-md-8 paddingtop">
-		<h2 title="">Hệ thống kho bãi</h2>
+		<h3 title="">Hệ thống kho bãi</h3>
 		<hr>
 		<p><a>Diện tích bến bãi ngoài trời đã hoàn thành 23 ha, thuận lợi cho việc đổ bãi và tập kết hàng hóa. Bề mặt bãi khá bằng phẳng và rộng rãi, sạch sẽ.</a></p>
 		<p><img src="img/khobai1.jpg" width="100%"></p>

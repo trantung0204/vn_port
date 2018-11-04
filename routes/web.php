@@ -32,3 +32,6 @@ Route::get('kho-bai', function () {
 Route::get('lien-he', function () {
     return view('pages/lienhe');
 });
+Route::get('tin-moi', function () {
+    return view('pages/tinmoi');
+});
