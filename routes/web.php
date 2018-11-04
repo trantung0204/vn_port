@@ -32,3 +32,7 @@ Route::get('kho-bai', function () {
 Route::get('lien-he', function () {
     return view('pages/lienhe');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
