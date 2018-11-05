@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-blue">
-    <a class="navbar-brand" href="{{asset('')}}"><i class="fa fa-home" aria-hidden="true"></i>
+    <a class="navbar-brand" href="{{asset('')}}"><i class="fa fa-home" aria-hidden="true" style="padding-left: 30px;"></i>
         TRANG CHỦ</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                <a class="nav-link dropdown-toggle navbar-shadows" href="#" id="navbarDropdown" role="button"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     GIỚI THIỆU
                 </a>
@@ -21,7 +21,7 @@
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                <a class="nav-link dropdown-toggle navbar-shadows" href="#" id="navbarDropdown" role="button"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     CƠ SỞ VẬT CHẤT VÀ HẠ TẦNG
                 </a>
@@ -37,22 +37,22 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="{{asset('dich-vu')}}">DỊCH VỤ</a>
+                <a class="nav-link disabled navbar-shadows" href="{{asset('dich-vu')}}">DỊCH VỤ</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="{{asset('khach-hang')}}">KHÁCH HÀNG</a>
+                <a class="nav-link disabled navbar-shadows" href="{{asset('khach-hang')}}">KHÁCH HÀNG</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="{{asset('bieu-cuoc')}}">BIỂU CƯỚC</a>
+                <a class="nav-link disabled navbar-shadows" href="{{asset('bieu-cuoc')}}">BIỂU CƯỚC</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="{{asset('tin-tuc')}}">TIN TỨC</a>
+                <a class="nav-link disabled navbar-shadows" href="{{asset('tin-tuc')}}">TIN TỨC</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="{{asset('lien-he')}}">LIÊN HỆ</a>
+                <a class="nav-link disabled navbar-shadows" href="{{asset('lien-he')}}">LIÊN HỆ</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="{{asset('noi-bo')}}">NỘI BỘ</a>
+                <a class="nav-link disabled navbar-shadows" href="{{asset('noi-bo')}}">NỘI BỘ</a>
             </li>
         </ul>
     </div>

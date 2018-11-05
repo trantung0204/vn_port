@@ -7,6 +7,11 @@
  * Copyright 2011-2018 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+.navbar-shadows:hover{
+    background: rgba(0,0,0,0.2);
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+}
 .primary-color{
     background-color: #4285f4!important;
 }
