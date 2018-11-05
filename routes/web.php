@@ -53,5 +53,13 @@ Route::prefix('admin')->group(function(){
 		Route::post('posts/get_list_posts', 'Admin\PostController@getListPosts')->name('posts.getListPosts');
 		Route::resource('posts','Admin\PostController');
 		Route::post('posts', 'Admin\PostController@update')->name('posts.update');
+
+		Route::get('introduce', 'Admin\IntroduceController@index')->name('introduce.index');
+		Route::get('introduce/show', 'Admin\IntroduceController@show')->name('introduce.show');
+		Route::post('introduce/update', 'Admin\IntroduceController@update')->name('introduce.update');
+
+		Route::get('contact', 'Admin\ContactController@index')->name('contact.index');
+		Route::get('contact/show', 'Admin\ContactController@show')->name('contact.show');
+		Route::post('contact/update', 'Admin\ContactController@update')->name('contact.update');
 	});
 });
