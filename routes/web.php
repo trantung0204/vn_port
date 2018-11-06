@@ -52,7 +52,8 @@ Route::prefix('admin')->group(function(){
 	Route::middleware('auth')->group( function (){
 		Route::post('posts/get_list_posts', 'Admin\PostController@getListPosts')->name('posts.getListPosts');
 		Route::resource('posts','Admin\PostController');
-		Route::post('posts', 'Admin\PostController@update')->name('posts.update');
+		Route::post('posts/{id}', 'Admin\PostController@update')->name('posts.update');
+		Route::get('posts/status/{id}/{status}', 'Admin\PostController@status')->name('posts.status');
 
 		Route::get('introduce', 'Admin\IntroduceController@index')->name('introduce.index');
 		Route::get('introduce/show', 'Admin\IntroduceController@show')->name('introduce.show');

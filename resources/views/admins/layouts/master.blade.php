@@ -4,7 +4,7 @@
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="csrf-token" content="{{ csrf_token() }}">
-      <title>Shop Admin</title>
+      <title>Nghi Son NSIP</title>
       <base href="{{asset('')}}admin_assets/">
       
       <!-- Tell the browser to be responsive to screen width -->
@@ -399,8 +399,10 @@
       {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" type="text/javascript" charset="utf-8" async defer></script> --}}
       <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js" type="text/javascript"></script>
       <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.18.0/jquery.validate.min.js"></script>
       {{-- <script src="{{ asset('admin_assets/js/autoNumeric.js') }}"></script>"></script> --}}
       <script src="https://cdnjs.cloudflare.com/ajax/libs/autonumeric/4.1.0/autoNumeric.min.js" type="text/javascript"></script>
+      <script src="js/global.js" type="text/javascript"></script>
       @yield('js')
    </body>
 </html>
