@@ -37,9 +37,9 @@ Route::get('lien-he', function () {
 // Route::get('tin-moi', function () {
 //     return view('pages/tinmoi');
 // });
-Route::get('tin-tuc', function () {
-    return view('pages/tintuc');
-});
+// Route::get('tin-tuc', function () {
+//     return view('pages/tintuc');
+// });
 // Route::get('noi-bo', function () {
 //     return view('pages/noibo');
 // });
@@ -64,5 +64,13 @@ Route::prefix('admin')->group(function(){
 		Route::get('contact', 'Admin\ContactController@index')->name('contact.index');
 		Route::get('contact/show', 'Admin\ContactController@show')->name('contact.show');
 		Route::post('contact/update', 'Admin\ContactController@update')->name('contact.update');
+
+		Route::post('charges/get_list_charges', 'Admin\ChargesController@getListCharges')->name('charges.getListCharges');
+		Route::resource('charges','Admin\ChargesController');
+		Route::post('charges/{id}', 'Admin\ChargesController@update')->name('charges.update');
+		Route::get('charges/status/{id}/{status}', 'Admin\ChargesController@status')->name('charges.status');
+
+		// Route::post('users/get_list_users', 'Admin\UserController@getListUsers')->name('users.getListUsers');
+		// Route::resource('users','Admin\UserController');
 	});
 });

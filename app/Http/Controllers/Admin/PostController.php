@@ -156,12 +156,6 @@ class PostController extends Controller
             ->editColumn('created_at', function ($posts) {
                 return date('H:i | d-m-Y', strtotime($posts->created_at));
             })
-            ->editColumn('status', function ($posts){
-                if ($posts->status==0) {
-                    return "Công khai";
-                }
-                return "Nội bộ";
-            })
             ->editColumn('thumbnail', function ($posts){
 
                 return '<img style="width:70px;" src="'.Storage::url($posts->thumbnail).'">';
@@ -172,11 +166,14 @@ class PostController extends Controller
             })
             ->editColumn('status', function ($posts){
                 if ($posts->status==0) {
-                    return '<i class="fa fa-check-circle-o btn-public btn-status" data-id="'.$posts->id.'" aria-hidden="true"></i>';
+                    return '<i class="fa fa-toggle-on btn-public btn-status" data-id="'.$posts->id.'" aria-hidden="true"></i>';
                 }
-                return '<i class="fa fa-circle-o btn-private btn-status" data-id="'.$posts->id.'" aria-hidden="true"></i>';
+                return '<i class="fa fa-toggle-off btn-private btn-status" data-id="'.$posts->id.'" aria-hidden="true"></i>';
             })
-            ->rawColumns(['action','thumbnail','status'])
+            ->addColumn('url', function ($posts){
+                return '<a target="_blank" href="'.asset("bai-viet").'/'.$posts->slug.'" class="fa fa-link" aria-hidden="true"></a>';
+            })
+            ->rawColumns(['action','thumbnail','status','url'])
             ->toJson();
     }
 }

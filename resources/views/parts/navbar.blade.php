@@ -45,9 +45,9 @@
             <li class="nav-item">
                 <a class="nav-link disabled navbar-shadows" href="{{asset('bieu-cuoc')}}">BIỂU CƯỚC</a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link disabled navbar-shadows" href="{{asset('tin-tuc')}}">TIN TỨC</a>
-            </li>
+            </li> --}}
             <li class="nav-item">
                 <a class="nav-link disabled navbar-shadows" href="{{asset('lien-he')}}">LIÊN HỆ</a>
             </li>
