@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('pages/home');
-});
+Route::get('/', 'PageController@index')->name('page.home');
+Route::get('bai-viet/{id}', 'PageController@post')->name('page.post');
 Route::get('bieu-cuoc', function () {
     return view('pages/bieucuoc');
 });
