@@ -39,12 +39,13 @@ class PostController extends Controller
                 $temp['thumbnail'] = Storage::disk('local')->put('public/post-thumbnail', $file);
             }
             $temp['title'] = $request['title'];
+            $temp['slug'] = str_slug($request['title']).time();
             $temp['description'] = $request['description'];
             $temp['content'] = $request['content'];
             $temp['user_id'] = Auth::user()->id;
             $temp['status'] = 1;
-            Post::create($temp);
-
+            $post=Post::create($temp);
+            $post->update(['slug'=>str_slug($post->title).strtotime($post->created_at)]);
             DB::commit();
             return response()->json(['err' => false, 'msg' => 'Thêm mới thành công']);
         } catch (\Exception $e) {
@@ -79,14 +80,16 @@ class PostController extends Controller
 
         try { 
             // dd($request);
+            $post=Post::find($request['id']);
             $temp = [];
             if($file=$request->file('thumbnail')){
                 $temp['thumbnail'] = Storage::disk('local')->put('public/post-thumbnail', $file);
             }
             $temp['title'] = $request['title'];
+            $temp['slug'] = str_slug($request['title']).strtotime($post->created_at);
             $temp['description'] = $request['description'];
             $temp['content'] = $request['content'];
-            Post::find($request['id'])->update($temp);
+            $post->update($temp);
 
             DB::commit();
             return response()->json(['err' => false, 'msg' => 'Cập nhật thành công']);

@@ -51,9 +51,11 @@
             <li class="nav-item">
                 <a class="nav-link disabled" href="{{asset('lien-he')}}">LIÊN HỆ</a>
             </li>
+            @if (Auth::check())
             <li class="nav-item">
                 <a class="nav-link disabled" href="{{asset('noi-bo')}}">NỘI BỘ</a>
             </li>
+            @endif
         </ul>
     </div>
 </nav>
