@@ -9,7 +9,7 @@
         @else
             @foreach ($posts as $post)
                 <div class="colnews1">
-                    <a id="UCTintucmoi_Home1_Repeater1_HyperLink1_0" href="{{ asset('bai-viet') }}/{{$post->id}}">{{$post->title}}</a>
+                    <a id="UCTintucmoi_Home1_Repeater1_HyperLink1_0" href="{{ asset('bai-viet') }}/{{$post->slug}}">{{$post->title}}</a>
                 </div>
                 <div class="contentthongbao">
                 <span id="">

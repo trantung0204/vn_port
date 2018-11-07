@@ -12,7 +12,10 @@
 */
 
 Route::get('/', 'PageController@index')->name('page.home');
-Route::get('bai-viet/{id}', 'PageController@post')->name('page.post');
+Route::get('bai-viet/{slug}', 'PageController@post')->name('page.post');
+Route::middleware('auth')->group( function (){
+	Route::get('noi-bo', 'PageController@privatePost')->name('page.privatePost');
+});
 Route::get('bieu-cuoc', function () {
     return view('pages/bieucuoc');
 });
@@ -31,15 +34,15 @@ Route::get('kho-bai', function () {
 Route::get('lien-he', function () {
     return view('pages/lienhe');
 });
-Route::get('tin-moi', function () {
-    return view('pages/tinmoi');
-});
+// Route::get('tin-moi', function () {
+//     return view('pages/tinmoi');
+// });
 Route::get('tin-tuc', function () {
     return view('pages/tintuc');
 });
-Route::get('noi-bo', function () {
-    return view('pages/noibo');
-});
+// Route::get('noi-bo', function () {
+//     return view('pages/noibo');
+// });
 Route::get('khach-hang', function () {
     return view('pages/khachhang');
 });

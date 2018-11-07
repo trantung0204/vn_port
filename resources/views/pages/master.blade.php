@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col-sm-12 col-xs-12">
             <div class="head1">
-                <div><span><img class="d-block img-fluid" src="img/logo.png"></span></div>
+                <div><span><img class="d-block img-fluid" src="{{ asset('img/logo.png') }}"></span></div>
             </div>
             @include('parts.navbar')
         </div>
