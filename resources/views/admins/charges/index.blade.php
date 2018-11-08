@@ -50,7 +50,7 @@
 			          {{csrf_field()}}<!-- sinh token -->
 			          <input type="hidden" name="edit_id" id="edit_id" value="">
 			          <div class="form-group">
-			            <label for="edit_title">Tiêu đề</label>
+			            <label for="edit_name">Tiêu đề</label>
 			            <input name="edit_name" type="text" id="edit_name" class="form-control" placeholder="Tiêu đề" >
 			          </div>
 			          <div class="form-group">
@@ -72,17 +72,17 @@
 			      <div class="modal-content">
 			        <div class="modal-header">
 			          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-			          <h4 class="modal-title">Thêm mới bài viết</h4>
+			          <h4 class="modal-title">Thêm mới biểu cước</h4>
 			        </div>
 			        <div class="modal-body">
 			        <form id="add-form" method="POST" role="form" >
 			          {{csrf_field()}}<!-- sinh token -->
 			          <div class="form-group">
-			            <label for="add_name">Tiêu đề</label>
+			            <label for="add_name">Tiêu đề <b class="error">*</b></label>
 			            <input name="add_name" type="text" id="add_name" class="form-control" placeholder="Tiêu đề" >
 			          </div>
 			          <div class="form-group">
-			          	<label for="add_file">Tệp biểu cước</label>
+			          	<label for="add_file">Tệp biểu cước <b class="error">*</b></label>
 						<input type="file" name="add_file" id="add_file" class="form-control">
 			          </div>
 

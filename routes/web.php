@@ -70,7 +70,8 @@ Route::prefix('admin')->group(function(){
 		Route::post('charges/{id}', 'Admin\ChargesController@update')->name('charges.update');
 		Route::get('charges/status/{id}/{status}', 'Admin\ChargesController@status')->name('charges.status');
 
-		// Route::post('users/get_list_users', 'Admin\UserController@getListUsers')->name('users.getListUsers');
-		// Route::resource('users','Admin\UserController');
+		Route::post('users/get_list_users', 'Admin\UserController@getListUsers')->name('users.getListUsers');
+		Route::resource('users','Admin\UserController');
+		Route::post('users/{id}', 'Admin\UserController@update')->name('users.update');
 	});
 });

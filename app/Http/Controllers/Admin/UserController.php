@@ -39,7 +39,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admins/users/index');
+        return view('admins/user/index');
     }
 
 
@@ -54,14 +54,10 @@ class UserController extends Controller
         DB::beginTransaction();
 
         try { 
-            // dd($request);
-            $temp = [];
-            if($file=$request->file('link')){
-                $temp['link'] = Storage::disk('local')->put('public/users-files', $file);
-            }
-            $temp['name'] = $request['name'];
-            $temp['status'] = 1;
-            Charge::create($temp);
+            $data=$request->all();
+            $data['password'] = bcrypt($data['password']);
+            // unset($data['password_2']);
+            User::create($data);
             DB::commit();
             return response()->json(['err' => false, 'msg' => 'Thêm mới thành công']);
         } catch (\Exception $e) {
@@ -78,8 +74,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $charge=Charge::find($id);
-        return response()->json(['data' => $charge]);
+        $user=User::find($id);
+        return response()->json(['data' => $user]);
     }
 
 
@@ -95,17 +91,31 @@ class UserController extends Controller
         DB::beginTransaction();
 
         try { 
-            // dd($request);
-            $charge=Charge::find($request['id']);
-            $temp = [];
-            if($file=$request->file('link')){
-                $temp['link'] = Storage::disk('local')->put('public/users-files', $file);
+            $data=$request->all();
+            // dd($data);
+            // $pass= bcrypt($data['password']);
+            $hasher = app('hash');
+            $user=User::find($id);
+            if ($hasher->check($data['password'], $user->password)) {
+                if ($data['new_password']==null) {
+                    // dd('name');
+                    $user->update([
+                        'name'=>$data['name'],
+                        'email'=>$data['email']
+                    ]);
+                }else{
+                    // dd('pass');
+                    $user->update([
+                        'name'=>$data['name'],
+                        'email'=>$data['email'],
+                        'password'=>bcrypt($data['new_password'])
+                    ]);
+                }
+                DB::commit();
+                return response()->json(['err' => false, 'save'=>true, 'msg' => 'Cập nhật thành công']);
+            }else{
+                return response()->json(['err' => false, 'save'=>false, 'msg' => 'Mật khẩu không đúng']);
             }
-            $temp['name'] = $request['name'];
-            $charge->update($temp);
-
-            DB::commit();
-            return response()->json(['err' => false, 'msg' => 'Cập nhật thành công']);
         } catch (\Exception $e) {
             DB::rollback();
             return response()->json(['err' => true, 'msg' => $e->getMessage()]);
@@ -123,10 +133,10 @@ class UserController extends Controller
         DB::beginTransaction();
 
         try {
-            Charge::find($id)->delete();
+            User::find($id)->delete();
 
             DB::commit();
-            return response()->json([ 'err' => false, 'msg' =>  'Đã xoá biểu cước']);
+            return response()->json([ 'err' => false, 'msg' =>  'Đã xoá quản trị viên']);
 
         } catch (\Exception $e) {
             return response()->json(['err'  =>  true, 'msg' =>  $e->getMessage()]);

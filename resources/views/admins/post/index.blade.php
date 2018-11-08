@@ -55,21 +55,21 @@
 			          {{csrf_field()}}<!-- sinh token -->
 			          <input type="hidden" name="edit_id" id="edit_id" value="">
 			          <div class="form-group">
-			            <label for="edit_title">Tiêu đề</label>
+			            <label for="edit_title">Tiêu đề <b class="error">*</b></label>
 			            <input name="edit_title" type="text" id="edit_title" class="form-control" placeholder="Tiêu đề bài viết" >
 			          </div>
 			          <div class="form-group">
-			            <label for="edit_description">Mô tả</label>
+			            <label for="edit_description">Mô tả <b class="error">*</b></label>
 			            <textarea name="edit_description" id="edit_description" class="form-control" rows="3" placeholder="Mô tả"></textarea>
 			          </div>
 			          <div class="form-group">
-			            <label for="edit_content">Nội dung</label>
+			            <label for="edit_content">Nội dung <b class="error">*</b></label>
 			            <textarea name="edit_content" id="edit_content" class="form-control" rows="3" placeholder="Nội dung"></textarea>
 			          </div>
 			          <div class="form-group">
 			          	<div class="row">
 			          		<div class="col-md-6">
-					            <label for="edit_thumbnail">Ảnh bìa</label>
+					            <label for="edit_thumbnail">Ảnh bìa <b class="error">*</b></label>
 					            <input type="file" name="edit_thumbnail" id="edit_thumbnail" class="form-control">
 			          		</div>
 			          		<div class="col-md-6">

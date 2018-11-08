@@ -129,7 +129,7 @@
                      </a>
                   </li>
                   <li class="">
-                     <a href="#">
+                     <a href="{{ route('users.index') }}">
                      <i class="fa fa-shield"></i>
                      <span>Quản trị viên</span>
                      </a>
