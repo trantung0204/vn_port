@@ -6,21 +6,20 @@ $(document).ready(function () {
 		}
 	});
 
-    var chargesTable=$('#users-table').DataTable({
+    var usersTable=$('#users-table').DataTable({
         autoWidth: true,
         processing: true,
         serverSide: true,
         ordering: false,
         ajax: {
-            url: asset + 'admin/charges/get_list_charges',
+            url: asset + 'admin/users/get_list_users',
             type: 'post'
         },
         searching: true,
         columns: [
             {data: 'DT_RowIndex', className: 'tx-center', searchable: false},
             {data: 'name', className: 'tx-center'},
-            {data: 'link', className: 'tx-center'},
-            {data: 'status', className: 'tx-center'},
+            {data: 'email', className: 'tx-center'},
             {data: 'created_at', className: 'tx-center'},
             {data: 'action', className: 'tx-center'},
         ],
@@ -30,7 +29,9 @@ $(document).ready(function () {
     $('#add_button').on('click',function () {
     	$('#add').modal('show');
     	$('#add_name').val('');
-    	$('#add_file').val('');
+        $('#add_email').val('');
+        $('#password').val('');
+    	$('#password_2').val('');
     })
     $('#add-form').on('submit',function (e) {
     	e.preventDefault();
@@ -42,25 +43,20 @@ $(document).ready(function () {
         if (!form.valid()) {
             return false;
         }
-        var newPost = new FormData();
-        var file = document.getElementById('add_file').files; 
-        if (file.length>0) {
-            newPost.append('link',file[0]);
-        }
-        newPost.append('name',$('#add_name').val());
-        // console.log(newPost);
         $.ajax({
-            url: asset + 'admin/charges',
+            url: asset + 'admin/users',
             type: 'POST', // GET, POST, PUT, PATCH, DELETE,
-            data: newPost,
-            processData: false,
-            contentType: false,
+            data: {
+                name: $('#add_name').val(),
+                email: $('#add_email').val(),
+                password: $('#password').val(),
+            },
             success: function (res)
             {
                 if (!res.err) {
                     toastr.success(res.msg);
 
-                    chargesTable.ajax.reload(null, false);
+                    usersTable.ajax.reload(null, false);
                     $('#add').modal('hide');
 
                 } else {
@@ -75,16 +71,32 @@ $(document).ready(function () {
             add_name: {
                 required: true
             },
-            add_file: {
-                required: true
+            add_email: {
+                required: true,
+                email: true
+            },
+            password: {
+                required: true,
+                minlength: 6
+            },
+            password_2: {
+                equalTo: "#password"
             }
         },
         messages: {
             add_name: {
-                required: 'Vui lòng nhập tiêu đề'
+                required: 'Vui lòng nhập tên'
             },
-            add_file: {
-                required: 'Vui lòng đính kèm tệp biểu cước'
+            add_email: {
+                required: 'Vui lòng nhập email',
+                email: 'Vui lòng nhập email đúng định dạng'
+            },
+            password: {
+                required: 'Vui lòng nhập mật khẩu',
+                minlength: 'Vui lòng nhập mật khẩu tối thiểu 6 ký tự'
+            },
+            password_2: {
+                equalTo: 'Xác nhận mật khẩu chưa trùng khớp'
             }
         },
     });
@@ -94,18 +106,19 @@ $(document).ready(function () {
 
     	$('#edit').modal('show');
     	$.ajax({
-            url: asset + 'admin/charges/'+$(this).attr('data-id'),
+            url: asset + 'admin/users/'+$(this).attr('data-id'),
             type: 'GET', // GET, POST, PUT, PATCH, DELETE,
             processData: false,
             contentType: false,
             success: function (res)
             {
                 if (!res.err) {
-			    	$('#edit_name').val(res.data.name);
-                    $('#edit_file').val('');
                     $('#edit_id').val(res.data.id);
-                    $('.error.curent-file').remove();
-			    	$('#edit_file').after('<span class="error curent-file">Tệp hiện tại: <a href="'+res.data.link.replace("public", asset+"storage")+'">Tải</a></span>');
+			    	$('#edit_name').val(res.data.name);
+                    $('#edit_email').val(res.data.email);
+                    $('#curent_password').val('');
+                    $('#new_password').val('');
+                    $('#new_password_2').val('');
 			    } else {
                     toastr.error(res.msg);
                 }
@@ -122,26 +135,26 @@ $(document).ready(function () {
         if (!form.valid()) {
             return false;
         }
-        var newPost = new FormData();
-        var file = document.getElementById('edit_file').files; 
-        if (file.length>0) {
-            newPost.append('link',file[0]);
-        }
-        newPost.append('name',$('#edit_name').val());
-        // console.log(newPost);
         $.ajax({
-            url: asset + 'admin/charges/'+$('#edit_id').val(),
+            url: asset + 'admin/users/'+$('#edit_id').val(),
             type: 'POST', // GET, POST, PUT, PATCH, DELETE,
-            data: newPost,
-            processData: false,
-            contentType: false,
+            data: {
+                name: $('#edit_name').val(),
+                email: $('#edit_email').val(),
+                password: $('#curent_password').val(),
+                new_password: $('#new_password').val(),
+            },
             success: function (res)
             {
                 if (!res.err) {
-                    toastr.success(res.msg);
 
-                    chargesTable.ajax.reload(null, false);
-                    $('#edit').modal('hide');
+                    usersTable.ajax.reload(null, false);
+                    if (res.save) {
+                        toastr.success(res.msg);
+                        $('#edit').modal('hide');
+                    }else{
+                        toastr.warning(res.msg);
+                    }
 
                 } else {
                     toastr.error(res.msg);
@@ -157,41 +170,42 @@ $(document).ready(function () {
         rules: {
             edit_name: {
                 required: true
+            },
+            edit_email: {
+                required: true,
+                email: true
+            },
+            curent_password: {
+                required: true,
+            },
+            new_password: {
+                minlength: 6
+            },
+            new_password_2: {
+                equalTo: "#new_password"
             }
         },
         messages: {
             edit_name: {
-                required: 'Vui lòng nhập tiêu đề'
+                required: 'Vui lòng nhập tên'
+            },
+            edit_email: {
+                required: 'Vui lòng nhập email',
+                email: 'Vui lòng nhập email đúng định dạng'
+            },
+            curent_password: {
+                required: 'Vui lòng nhập mật khẩu',
+            },
+            new_password: {
+                minlength: 'Vui lòng nhập mật khẩu tối thiểu 6 ký tự'
+            },
+            new_password_2: {
+                equalTo: 'Xác nhận mật khẩu chưa trùng khớp'
             }
         },
     });
-    $(document).on('click','.btn-status',function () {
-    	var status=1;
-    	if ($(this).hasClass('btn-off')) {
-    		status=0
-    	}
-    	$.ajax({
-            url: asset + 'admin/charges/status/'+$(this).attr('data-id')+'/'+status,
-            type: 'GET', // GET, POST, PUT, PATCH, DELETE,
-            // data: newPost,
-            processData: false,
-            contentType: false,
-            success: function (res)
-            {
-                if (!res.err) {
-                    // toastr.success(res.msg);
 
-                    chargesTable.ajax.reload(null, false);
-                    // $('#edit').modal('hide');
-
-                } else {
-                    toastr.error(res.msg);
-                }
-            }
-        });
-    })
-
-    $('#charges-table').on('click', '.btn-delete', function (event) {
+    $('#users-table').on('click', '.btn-delete', function (event) {
         event.preventDefault();
 
         swal({
@@ -203,7 +217,7 @@ $(document).ready(function () {
 		.then((willDelete) => {
 		  if (willDelete) {
 			//var id=$(this).data('id');
-			var url=asset + 'admin/charges/' + $(this).attr('data-id');
+			var url=asset + 'admin/users/' + $(this).attr('data-id');
 			$.ajax({
 				type: 'delete',
 				url: url,
@@ -211,7 +225,7 @@ $(document).ready(function () {
 				success: function (response) {
 					//console.log(response);
 					toastr.error(response.msg);
-					chargesTable.ajax.reload(null, false);
+					usersTable.ajax.reload(null, false);
 				},
 				error: function (error) {
 					

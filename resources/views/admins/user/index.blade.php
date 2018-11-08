@@ -41,19 +41,31 @@
 		      <div class="modal-content">
 		        <div class="modal-header">
 		          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		          <h4 class="modal-title">Sửa thông tin biểu cước</h4>
+		          <h4 class="modal-title">Sửa thông tin quản trị viên</h4>
 		        </div>
 		        <div class="modal-body">
 			        <form id="edit-form" method="POST" role="form" >
 			          {{csrf_field()}}<!-- sinh token -->
 			          <input type="hidden" name="edit_id" id="edit_id" value="">
 			          <div class="form-group">
-			            <label for="edit_title">Tiêu đề</label>
-			            <input name="edit_name" type="text" id="edit_name" class="form-control" placeholder="Tiêu đề" >
+			            <label for="edit_name">Tên</label>
+			            <input name="edit_name" type="text" id="edit_name" class="form-control" placeholder="Tên" >
 			          </div>
 			          <div class="form-group">
-			          	<label for="edit_file">Tệp biểu cước</label>
-			            <input type="file" name="edit_file" id="edit_file" class="form-control">
+			            <label for="edit_email">Email</label>
+			            <input name="edit_email" type="text" id="edit_email" class="form-control" placeholder="Email" >
+			          </div>
+			          <div class="form-group">
+			            <label for="curent_password">Mật khẩu hiện tại <b class="error">*</b></label>
+			            <input name="curent_password" type="password" id="curent_password" class="form-control" placeholder="Mật khẩu hiện tại" >
+			          </div>
+			          <div class="form-group">
+			            <label for="new_password">Mật khẩu mới (Nếu muốn đổi mật khẩu)</label>
+			            <input name="new_password" type="password" id="new_password" class="form-control" placeholder="Mật khẩu mới" >
+			          </div>
+			          <div class="form-group">
+			            <label for="new_password_2">Nhập lại mật khẩu mới</label>
+			            <input name="new_password_2" type="password" id="new_password_2" class="form-control" placeholder="Nhập lại mật khẩu mới" >
 			          </div>
 		        </div>
 		        <div class="modal-footer">
@@ -70,18 +82,26 @@
 			      <div class="modal-content">
 			        <div class="modal-header">
 			          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-			          <h4 class="modal-title">Thêm mới bài viết</h4>
+			          <h4 class="modal-name">Thêm mới tài khoản quản trị</h4>
 			        </div>
 			        <div class="modal-body">
 			        <form id="add-form" method="POST" role="form" >
 			          {{csrf_field()}}<!-- sinh token -->
 			          <div class="form-group">
-			            <label for="add_name">Tiêu đề</label>
+			            <label for="add_name">Tên <b class="error">*</b></label>
 			            <input name="add_name" type="text" id="add_name" class="form-control" placeholder="Tiêu đề" >
 			          </div>
 			          <div class="form-group">
-			          	<label for="add_file">Tệp biểu cước</label>
-						<input type="file" name="add_file" id="add_file" class="form-control">
+			            <label for="add_email">Email <b class="error">*</b></label>
+			            <input name="add_email" type="text" id="add_email" class="form-control" placeholder="Email" >
+			          </div>
+			          <div class="form-group">
+			            <label for="password">Mật khẩu <b class="error">*</b></label>
+			            <input name="password" type="password" id="password" class="form-control" placeholder="Mật khẩu" >
+			          </div>
+			          <div class="form-group">
+			            <label for="password_2">Nhập lại mật khẩu <b class="error">*</b></label>
+			            <input name="password_2" type="password" id="password_2" class="form-control" placeholder="Nhập lại mật khẩu" >
 			          </div>
 
 			        <div class="modal-footer">
