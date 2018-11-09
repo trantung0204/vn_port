@@ -122,31 +122,31 @@
                <ul class="sidebar-menu" data-widget="tree">
                   <li class="header">Menu</li>
                   </li>
-                  <li class="">
+                  <li class="{{ request()->is(["admin/posts", "admin/posts/*"]) ? 'active' : '' }}">
                      <a href="{{ route('posts.index') }}">
                      <i class="fa fa-file-text-o"></i>
                      <span>Bài viết</span>
                      </a>
                   </li>
-                  <li class="">
+                  <li class="{{ request()->is(["admin/users", "admin/users/*"]) ? 'active' : '' }}">
                      <a href="{{ route('users.index') }}">
                      <i class="fa fa-shield"></i>
                      <span>Quản trị viên</span>
                      </a>
                   </li>
-                  <li class="">
+                  <li class="{{ request()->is(["admin/charges", "admin/charges/*"]) ? 'active' : '' }}">
                      <a href="{{ route('charges.index') }}">
                      <i class="fa fa-money"></i>
                      <span>Biểu cước</span>
                      </a>
                   </li>
-                  <li class="">
+                  <li class="{{ request()->is(["admin/introduce", "admin/introduce/*"]) ? 'active' : '' }}">
                      <a href="{{ route('introduce.index') }}">
                      <i class="fa fa-info-circle"></i>
-                     <span>Giới thiệu</span>
+                     <span>Thông tin</span>
                      </a>
                   </li>
-                  <li class="">
+                  <li class="{{ request()->is(["admin/contact", "admin/contact/*"]) ? 'active' : '' }}">
                      <a href="{{ route('contact.index') }}">
                      <i class="fa fa-envelope-open-o"></i>
                      <span>Liên hệ</span>
