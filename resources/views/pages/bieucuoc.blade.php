@@ -10,14 +10,12 @@
             </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td><a href="">Điều chỉnh giá biểu cước dịch vụ biển tháng 11 năm 2018</a></td>
-                    <td>04/11/2018</td>
-                </tr>
-                <tr>
-                    <td><a href="">Điều chỉnh giá biểu cước dịch vụ biển tháng 9 năm 2018</a></td>
-                    <td>04/09/2018</td>
-                </tr>
+                @foreach ($charges as $charge)
+                    <tr>
+                        <td><a href="{{str_replace("public",asset('storage'),$charge->link)}}">{{$charge->name}}</a></td>
+                        <td>{{date('d-m-Y', strtotime($charge->created_at))}}</td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
         <hr>

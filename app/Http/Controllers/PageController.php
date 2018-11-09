@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Admin\Post;
+use App\Admin\Charge;
 use App\User;
 use Auth;
 
@@ -21,11 +22,21 @@ class PageController extends Controller
     }
     public function post($slug)
     {
-    	$post=Post::where('slug',$slug)->firstOrFail();
+        $post=Post::where('slug',$slug)->firstOrFail();
         if (($post->status==1)&&(!Auth::check())) {
             abort(404);
         }
-    	$author=User::find($post->user_id)->name;
+        $author=User::find($post->user_id)->name;
         return view('pages/tinmoi',compact('post','author'));
     }
+    public function charge()
+    {
+        $charges=Charge::orderBy('id','desc')->get();
+        return view('pages/bieucuoc',compact('charges'));
+    }
+    // public function info($slug)
+    // {
+    // 	$charges=Charge::orderBy('id','desc')->get();
+    //     return view('pages/bieucuoc',compact('charges'));
+    // }
 }

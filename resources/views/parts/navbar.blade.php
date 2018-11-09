@@ -39,9 +39,9 @@
             <li class="nav-item">
                 <a class="nav-link disabled navbar-shadows" href="{{asset('dich-vu')}}">DỊCH VỤ</a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link disabled navbar-shadows" href="{{asset('khach-hang')}}">KHÁCH HÀNG</a>
-            </li>
+            </li> --}}
             <li class="nav-item">
                 <a class="nav-link disabled navbar-shadows" href="{{asset('bieu-cuoc')}}">BIỂU CƯỚC</a>
             </li>
