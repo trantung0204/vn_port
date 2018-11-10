@@ -47,7 +47,8 @@ class IntroduceController extends Controller
         OptionValue::where('option_id',2)->where('value',7)->update(['name'=> $request->storage]);
         OptionValue::where('option_id',2)->where('value',8)->update(['name'=> $request->equipment]);
         OptionValue::where('option_id',2)->where('value',9)->update(['name'=> $request->degree]);
-    	OptionValue::where('option_id',2)->where('value',10)->update(['name'=> $request->capacity]);
+        OptionValue::where('option_id',2)->where('value',10)->update(['name'=> $request->capacity]);
+    	OptionValue::where('option_id',2)->where('value',11)->update(['name'=> $request->service]);
     	return redirect()->route('introduce.index')->with('success_msg', 'Cập nhật thành công');
     }
 }

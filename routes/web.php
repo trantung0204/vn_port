@@ -20,30 +20,11 @@ Route::get('bieu-cuoc', 'PageController@charge')->name('page.charge');
 Route::get('dich-vu', function () {
     return view('pages/dichvu');
 });
-// Route::get('gioi-thieu', function () {
-//     return view('pages/gioithieu');
-// });
-// Route::get('he-thong-thiet-bi', function () {
-//     return view('pages/hethongthietbi');
-// });
-// Route::get('kho-bai', function () {
-//     return view('pages/khobai');
-// });
-// Route::get('lien-he', function () {
-//     return view('pages/lienhe');
-// });
-// Route::get('tin-moi', function () {
-//     return view('pages/tinmoi');
-// });
-// Route::get('tin-tuc', function () {
-//     return view('pages/tintuc');
-// });
-// Route::get('noi-bo', function () {
-//     return view('pages/noibo');
-// });
-// Route::get('khach-hang', function () {
-//     return view('pages/khachhang');
-// });
+Route::get('lien-he', function () {
+    return view('pages/lienhe');
+});
+Route::get('thong-tin/{slug}', 'PageController@info')->name('page.info');
+
 
 
 Auth::routes();

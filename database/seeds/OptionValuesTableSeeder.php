@@ -412,7 +412,12 @@ class OptionValuesTableSeeder extends Seeder
         OptionValue::create([
             'name'          => '<p>Năng lực tiếp nhận tàu</p>',
             'option_id'     => $introduce_id,
-            'value'        	=> 10
+            'value'         => 10
+        ]);
+        OptionValue::create([
+            'name'          => '<p>Các dịch vụ</p>',
+            'option_id'     => $introduce_id,
+            'value'        	=> 11
         ]);
     }
 }
