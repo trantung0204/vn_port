@@ -13,11 +13,11 @@
                     GIỚI THIỆU
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ asset('gioi-thieu') }}">LỊCH SỬ HÌNH THÀNH</a>
-                    <a class="dropdown-item" href="">TẦM NHÌN, SỨ MỆNH</a>
+                    <a class="dropdown-item" href="{{ asset('thong-tin/lich-su') }}">LỊCH SỬ HÌNH THÀNH</a>
+                    <a class="dropdown-item" href="{{ asset('thong-tin/tam-nhin') }}">TẦM NHÌN, SỨ MỆNH</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">SƠ ĐỒ TỔ CHỨC</a>
-                    <a class="dropdown-item" href="#">BAN LÃNH ĐẠO</a>
+                    <a class="dropdown-item" href="{{ asset('thong-tin/to-chuc') }}">SƠ ĐỒ TỔ CHỨC</a>
+                    <a class="dropdown-item" href="{{ asset('thong-tin/lanh-dao') }}">BAN LÃNH ĐẠO</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -26,18 +26,18 @@
                     CƠ SỞ VẬT CHẤT VÀ HẠ TẦNG
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{asset('luong-lach')}}">LUỒNG LẠCH</a>
-                    <a class="dropdown-item" href="{{asset('cau-cang')}}">CẦU CẢNG</a>
+                    <a class="dropdown-item" href="{{ asset('thong-tin/luong-lach') }}">LUỒNG LẠCH</a>
+                    <a class="dropdown-item" href="{{ asset('thong-tin/cau-cang') }}">CẦU CẢNG</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{{asset('kho-bai')}}">KHO BÃI</a>
-                    <a class="dropdown-item" href="{{asset('he-thong-thiet-bi')}}">HỆ THỐNG THIẾT BỊ</a>
-                    <a class="dropdown-item" href="#">CÁC GIẤY CHỨNG NHẬN ĐÃ ĐƯỢC CẤP</a>
-                    <a class="dropdown-item" href="#">NĂNG LỰC TIẾP NHẬN TÀU</a>
+                    <a class="dropdown-item" href="{{asset('thong-tin/kho-bai')}}">KHO BÃI</a>
+                    <a class="dropdown-item" href="{{asset('thong-tin/thiet-bi')}}">HỆ THỐNG THIẾT BỊ</a>
+                    <a class="dropdown-item" href="{{asset('thong-tin/chung-nhan')}}">CÁC GIẤY CHỨNG NHẬN ĐÃ ĐƯỢC CẤP</a>
+                    <a class="dropdown-item" href="{{asset('thong-tin/nang-luc')}}">NĂNG LỰC TIẾP NHẬN TÀU</a>
 
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled navbar-shadows" href="{{asset('dich-vu')}}">DỊCH VỤ</a>
+                <a class="nav-link disabled navbar-shadows" href="{{asset('thong-tin/dich-vu')}}">DỊCH VỤ</a>
             </li>
             {{-- <li class="nav-item">
                 <a class="nav-link disabled navbar-shadows" href="{{asset('khach-hang')}}">KHÁCH HÀNG</a>

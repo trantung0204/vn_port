@@ -99,6 +99,21 @@
 						  <div class="panel panel-default">
 						    <div class="panel-heading">
 						      <h4 class="panel-title">
+						        <a data-toggle="collapse" class="collapse-handle" href="#dich_vu"><i class="fa fa-caret-down" aria-hidden="true"></i> Dịch vụ</a>
+						      </h4>
+						    </div>
+						    <div id="dich_vu" class="panel-collapse collapse">
+						      <div class="panel-body">
+								<textarea name="service" id="service" class="form-control" rows="3" required="required"></textarea>
+						      </div>
+						    </div>
+						  </div>
+						</div>  
+		            	
+	              		<div class="panel-group">
+						  <div class="panel panel-default">
+						    <div class="panel-heading">
+						      <h4 class="panel-title">
 						        <a data-toggle="collapse" class="collapse-handle" href="#luong_lach"><i class="fa fa-caret-down" aria-hidden="true"></i> Luồng lạch</a>
 						      </h4>
 						    </div>
@@ -228,6 +243,7 @@
 		CKEDITOR.replace('organization' );
 		CKEDITOR.replace('host' );
 
+		CKEDITOR.replace('service' );
 		CKEDITOR.replace('stream' );
 		CKEDITOR.replace('bridge' );
 		CKEDITOR.replace('storage' );
@@ -251,6 +267,7 @@
 				CKEDITOR.instances.equipment.setData(response.data[8].name);
 				CKEDITOR.instances.degree.setData(response.data[9].name);
 				CKEDITOR.instances.capacity.setData(response.data[10].name);
+				CKEDITOR.instances.service.setData(response.data[11].name);
 			},
 			error: function (error) {
 			}
